@@ -1,0 +1,2 @@
+# AlphaStore
+Store Keeping Application
