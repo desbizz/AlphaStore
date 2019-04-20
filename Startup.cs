@@ -1,8 +1,11 @@
+using AlphaStore.Repositories;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -27,6 +30,10 @@ namespace AlphaStore
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+             services.AddDbContext<ProfileContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+      //      services.AddScoped<IIndividualRepository, IndividualRepository>();
+            services.AddAutoMapper();
+           //  services.AddSingleton<IJwtFactory, JwtFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

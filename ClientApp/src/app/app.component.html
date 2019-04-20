@@ -1,6 +1,22 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
+
+<div class="ui bottom attached segment pushable">
+  <div class="ui visible inverted left vertical sidebar menu">
+    <a class="item">
+      <i class="home icon"></i>
+      Stock Keeping
+    </a>
+    <div class="ui list">
+      <div class="item">HOME</div>
+      <div class="item">Add New Product</div>
+      <div class="item">SETTINGS</div>
+    </div>
   </div>
-</body>
+  
+    <div class="ui basic segment">
+        <div class="ui raised very padded text container segment">
+            <router-outlet></router-outlet>
+          </div>
+     
+    </div>
+ 
+</div>

@@ -1,0 +1,31 @@
+<form class="ui form" #f="ngForm" (ngSubmit)="submit()">
+    <div class="field">
+      <label>Product Name</label>
+      <input type="text" name="productName" placeholder="Product Name" [(ngModel)]="product.productName">
+    </div>
+    <div class="field">
+        <label for="Tittle">Category</label>
+        <select id="categoryId" [(ngModel)]="product.categoryId" name="categoryId">
+    
+            <!-- <option *ngFor="let t of tittle" value="{{t.id}}">{{t.name}}</option> -->
+        </select>
+    </div>
+    <div class="field">
+        <label>Supplier</label>
+        
+        <select id="supplierId" [(ngModel)]="product.supplierId" name="supplierId">
+    
+            <!-- <option *ngFor="let t of tittle" value="{{t.id}}">{{t.name}}</option> -->
+        </select>
+      </div>
+      
+        <div class="field">
+            <label>Buying Price</label>
+            <input type="text" name="priceBuy" placeholder="Buying Price" [(ngModel)]="product.priceBuy">
+          </div>
+          <div class="field">
+              <label>Selling Price</label>
+              <input type="text" name="last-name" placeholder="Selling Price" [(ngModel)]="product.priceSell">
+            </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>

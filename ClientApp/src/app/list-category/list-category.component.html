@@ -1,0 +1,21 @@
+
+<h3><a [routerLink]="['/addcategory']"><button type="button" class="btn btn-info">Add New Category</button></a></h3>
+<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+       
+        <th scope="col">Category List</th>
+        <th scope="col">Edit</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of categories">
+       
+        <td>{{item.name}}</td>
+    
+        <td><a [routerLink]="['/category/'+ item.id]"><button type="button" class="btn btn-info">Edit</button></a></td>
+      </tr>
+     
+    </tbody>
+  </table>
