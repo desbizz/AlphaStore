@@ -27,6 +27,8 @@ export class AddStoreComponent implements OnInit {
      }
 
   ngOnInit() {
+    if(!this.store.id)
+    this.store.id=0;
     this.configurationService.GetStore(this.store.id)
     .subscribe(categ => this.store = categ);
 

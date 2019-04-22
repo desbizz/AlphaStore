@@ -27,6 +27,9 @@ export class AddCategoryComponent implements OnInit {
      }
 
   ngOnInit() {
+
+    if(!this.category.id)
+    this.category.id=0;
     this.configurationService.GetCategory(this.category.id)
     .subscribe(categ => this.category = categ);
 

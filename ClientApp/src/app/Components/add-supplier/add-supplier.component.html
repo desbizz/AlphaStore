@@ -1,17 +1,18 @@
-{{supplier|json}}
+
 
 <form class="ui form" #f="ngForm" (ngSubmit)="submit()">
-    <div class="field">
+    <div class="form-group">
       <label>Supplier Name</label>
-      <input type="text" name="supplierName" placeholder="supplierName" [(ngModel)]="supplier.supplierName">
+      <input type="text" class="form-control" name="supplierName" placeholder="supplierName" [(ngModel)]="supplier.supplierName">
     </div>  
-    <div class="field">
+    <div class="form-group">
     <label>Phone Number</label>
-      <input type="text" name="phoneNumber" placeholder="Phone Number" [(ngModel)]="supplier.phoneNumber">
+      <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" [(ngModel)]="supplier.phoneNumber">
     </div>   
-    <div class="field">
+    <div class="form-group">
     <label>Email</label>
-      <input type="text" name="email" placeholder="Email" [(ngModel)]="supplier.email">
+      <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="supplier.email">
     </div>   
     <button class="ui button" type="submit">Submit</button>
   </form>
+ 

@@ -21,6 +21,7 @@ export class AddSupplierComponent implements OnInit {
     private router: Router,
 
     private configurationService: ConfigurationService) {
+
       route.params.subscribe(p => {
         this.supplier.id = +p['id'];
     });
@@ -28,6 +29,8 @@ export class AddSupplierComponent implements OnInit {
      }
 
   ngOnInit() {
+    if(!this.supplier.id)
+    this.supplier.id=0;
     this.configurationService.GetSupplier(this.supplier.id)
     .subscribe(categ => this.supplier = categ);
 

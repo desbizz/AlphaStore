@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AlphaStore.Entities;
 using AlphaStore.Recources;
@@ -70,6 +71,17 @@ namespace AlphaStore.Controllers
            if (product==null)
            return NotFound();
            var result= mapper.Map<Supplier, SupplierResources>(product);
+           return Ok(result);
+        }
+          public async Task<IActionResult> ListSuppliers()
+        {
+          
+          var product=await context.Suppliers
+          .ToListAsync();
+          
+           if (product==null)
+           return NotFound();
+           var result= mapper.Map<List<Supplier>, List<SupplierResources>>(product);
            return Ok(result);
         }
 
