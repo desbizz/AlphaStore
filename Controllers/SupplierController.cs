@@ -22,14 +22,14 @@ namespace AlphaStore.Controllers
         }
 
          [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody]SaveSupplierResources productResources)
+        public async Task<IActionResult> CreateProduct([FromBody]SupplierResources productResources)
         {
           //  individualResourses.Id = 0;
 
             if (!ModelState.IsValid)
               return BadRequest(ModelState);
             
-               var product=  mapper.Map<SaveSupplierResources, Supplier>(productResources);
+               var product=  mapper.Map<SupplierResources, Supplier>(productResources);
               
            // individual.Id = 0;
             context.Add(product);
@@ -43,14 +43,14 @@ namespace AlphaStore.Controllers
         }
 
              [HttpPut("{Id}")]
-        public async Task<IActionResult> EditStudent(int Id, [FromBody]SaveSupplierResources productResources)
+        public async Task<IActionResult> EditStudent(int Id, [FromBody]SupplierResources productResources)
         {
             
 
           if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             var product = await context.Suppliers.SingleOrDefaultAsync(x => x.Id == Id);
-            mapper.Map<SaveSupplierResources, Supplier>(productResources, product);
+            mapper.Map<SupplierResources, Supplier>(productResources, product);
             
             await context.SaveChangesAsync();
           product=await context.Suppliers.SingleOrDefaultAsync(s=>s.Id==product.Id);
@@ -61,7 +61,7 @@ namespace AlphaStore.Controllers
         }
 
              [HttpGet("{id}")]
-        public async Task<IActionResult> GetStudent(int id)
+        public async Task<IActionResult> GetSupplier(int id)
         {
           
           var product=await context.Suppliers

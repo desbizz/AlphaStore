@@ -9,17 +9,17 @@ import { ConfigurationService } from 'src/app/Services/configuration.service';
   styleUrls: ['./add-store.component.css']
 })
 export class AddStoreComponent implements OnInit {
-  store:Store={
-    id:0,
-    name:"",
-    address:"",
-    address1:""
+  store:Store = {
+    id: 0,
+    name: "",
+    address: "",
+    address1: ""
 };
   constructor(private route: ActivatedRoute,
     
-    private router:Router,
+    private router: Router,
   
-    private configurationService:ConfigurationService ) {
+    private configurationService: ConfigurationService ) {
       route.params.subscribe(p => {
         this.store.id = +p['id'];
     })
@@ -30,9 +30,6 @@ export class AddStoreComponent implements OnInit {
     this.configurationService.GetStore(this.store.id)
     .subscribe(categ => this.store = categ);
 
-
-
-    
 
 
   }
@@ -49,10 +46,10 @@ export class AddStoreComponent implements OnInit {
       this.configurationService.createStore(this.store)
   
           .subscribe(x => {
-             
-         
+
+
           });
-      
+
   }
   this.router.navigate(['liststore']);
   }

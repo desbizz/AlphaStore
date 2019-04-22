@@ -38,9 +38,9 @@ import { AddStoreComponent } from './Components/add-store/add-store.component';
     FormsModule,
     HttpModule,
     HttpClientModule,
-   
-    
-    
+
+
+
     RouterModule.forRoot([
      { path: 'addproduct', component: AddProductComponent, pathMatch: 'full' },
      { path: 'addcategory', component: AddCategoryComponent, pathMatch: 'full' },

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Store } from '../Models/store';
+import { Supplier } from '../Models/supplier';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,12 @@ createStore(store) {
   .pipe(map((response: any) => response.json()));
 
 }
+createSupplier(supplier) {
+
+  return this.http.post('/api/supplier', supplier)
+  .pipe(map((response: any) => response.json()));
+
+}
 UpdateCategory(category: KeyValuePair) {
 
 return this.http.put('/api/category/' + category.id, category)
@@ -72,5 +79,14 @@ ListCategory() {
       return this.http.get('/api/store/' + id)
       .pipe(map((response: any) => response.json()));
       }
+      GetSupplier(id) {
+        return this.http.get('/api/supplier/' + id)
+        .pipe(map((response: any) => response.json()));
+        }
+        UpdateSupplier(supplier: Supplier) {
 
+          return this.http.put('/api/suppplier/' + supplier.id, supplier)
+          .pipe(map((response: any) => response.json()));
+        
+          }
 }
