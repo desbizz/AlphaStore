@@ -10,52 +10,52 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlphaStore.Controllers
 {
-    [Route("/api/category/")]
-    public class CategoryController:Controller
+      [Route("/api/store/")]
+    public class StoreController:Controller
     {
-         private readonly IMapper mapper;
+          private readonly IMapper mapper;
        private readonly ProfileContext context;
 
-        public CategoryController(IMapper mapper, ProfileContext context)
+        public StoreController(IMapper mapper, ProfileContext context)
         {
             this.mapper = mapper;
             this.context = context;
         }
 
          [HttpPost]
-        public async Task<IActionResult> CreateCategory([FromBody]CategoryResources productResources)
+        public async Task<IActionResult> CreateCategory([FromBody]StoreResources productResources)
         {
           //  individualResourses.Id = 0;
 
             if (!ModelState.IsValid)
               return BadRequest(ModelState);
             
-               var product=  mapper.Map<CategoryResources, Category>(productResources);
+               var product=  mapper.Map<StoreResources, Store>(productResources);
               
            // individual.Id = 0;
             context.Add(product);
            await context .SaveChangesAsync();
 
-           product=await context.Categories.SingleOrDefaultAsync(s=>s.Id==product.Id);
-           var result= mapper.Map<Category, CategoryResources>(product);
+           product=await context.Stores.SingleOrDefaultAsync(s=>s.Id==product.Id);
+           var result= mapper.Map<Store, StoreResources>(product);
 
 
               return Ok(result);
         }
 
              [HttpPut("{Id}")]
-        public async Task<IActionResult> EditCategory(int Id, [FromBody]SaveCategoryResources productResources)
+        public async Task<IActionResult> EditCategory(int Id, [FromBody]StoreResources productResources)
         {
             
 
           if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var product = await context.Categories.SingleOrDefaultAsync(x => x.Id == Id);
-            mapper.Map<SaveCategoryResources, Category>(productResources, product);
+            var product = await context.Stores.SingleOrDefaultAsync(x => x.Id == Id);
+            mapper.Map<StoreResources, Store>(productResources, product);
             
             await context.SaveChangesAsync();
-          product=await context.Categories.SingleOrDefaultAsync(s=>s.Id==product.Id);
-           var result= mapper.Map<Category, CategoryResources>(product);
+          product=await context.Stores.SingleOrDefaultAsync(s=>s.Id==product.Id);
+           var result= mapper.Map<Store, StoreResources>(product);
 
 
               return Ok(result);
@@ -65,12 +65,12 @@ namespace AlphaStore.Controllers
         public async Task<IActionResult> GetCategory(int id)
         {
           
-          var product=await context.Categories
+          var product=await context.Stores
           .SingleOrDefaultAsync(s=>s.Id==id);
           
            if (product==null)
            return NotFound();
-           var result= mapper.Map<Category, CategoryResources>(product);
+           var result= mapper.Map<Store, StoreResources>(product);
            return Ok(result);
         }
 
@@ -78,15 +78,13 @@ namespace AlphaStore.Controllers
         public async Task<IActionResult> ListCategories()
         {
           
-          var product=await context.Categories
+          var product=await context.Stores
           .ToListAsync();
           
            if (product==null)
            return NotFound();
-           var result= mapper.Map<List<Category>, List<CategoryResources>>(product);
+           var result= mapper.Map<List<Store>, List<StoreResources>>(product);
            return Ok(result);
         }
-
-        
     }
 }

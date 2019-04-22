@@ -1,0 +1,15 @@
+<form class="ui form" #f="ngForm" (ngSubmit)="submit()">
+  <div class="field">
+    <label>Name</label>
+    <input type="text" name="name" placeholder="Enter Store Name" [(ngModel)]="store.name">
+  </div>  
+  <div class="field">
+    <label>Address</label>
+    <input type="text" name="name" placeholder="Enter Store Address Line 1" [(ngModel)]="store.address">
+  </div> 
+  <div class="field">
+    <label>Address Line 2</label>
+    <input type="text" name="name" placeholder="Enter Store Address Line 2" [(ngModel)]="store.address1">
+  </div>   
+  <button class="ui button" type="submit">Submit</button>
+</form>

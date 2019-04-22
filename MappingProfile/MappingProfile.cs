@@ -33,6 +33,9 @@ namespace AlphaStore.MappingProfile
 
                 CreateMap<SupplierResources, Supplier>()
              .ForMember(f => f.Id, opt => opt.Ignore());
+             CreateMap<StoreResources, Store>()
+             .ForMember(f => f.Id, opt => opt.Ignore());
+
 
             
 

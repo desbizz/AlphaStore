@@ -1,7 +1,8 @@
-import { KeyValuePair } from './../Models/keyvaluepair';
-import { ConfigurationService } from './../configuration.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { KeyValuePair } from 'src/app/Models/keyvaluepair';
+import { ConfigurationService } from 'src/app/Services/configuration.service';
 
 
 @Component({
@@ -19,9 +20,15 @@ export class AddCategoryComponent implements OnInit {
     
     private router:Router,
   
-    private configurationService:ConfigurationService) { }
+    private configurationService:ConfigurationService) {
+      route.params.subscribe(p => {
+        this.category.id = +p['id'];
+    })
+     }
 
   ngOnInit() {
+    this.configurationService.GetCategory(this.category.id)
+    .subscribe(categ => this.category = categ);
 
 
     
