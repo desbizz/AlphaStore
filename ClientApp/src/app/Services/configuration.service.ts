@@ -13,16 +13,16 @@ export class ConfigurationService {
   constructor(private http: Http) { }
 
   createPayment(product) {
-   
+
     return this.http.post('/api/payment', product)
     .pipe(map((response: any) => response.json()));
-        
+
 }
-UpdatePayment(payment:SaveProduct) {
-   
-  return this.http.put('/api/payment/'+ payment.id, payment)
+UpdatePayment(payment: SaveProduct) {
+
+  return this.http.put('/api/payment/' + payment.id, payment)
   .pipe(map((response: any) => response.json()));
-      
+
 }
 ListPayment() {
   return this.http.get('/api/payment')
@@ -33,28 +33,28 @@ ListPayment() {
     .pipe(map((response: any) => response.json()));
     }
 createCategory(category) {
-   
+
   return this.http.post('/api/category', category)
   .pipe(map((response: any) => response.json()));
-      
+
 }
 createStore(store) {
-   
+
   return this.http.post('/api/store', store)
   .pipe(map((response: any) => response.json()));
-      
+
 }
-UpdateCategory(category:KeyValuePair) {
- 
-return this.http.put('/api/category/'+ category.id, category)
+UpdateCategory(category: KeyValuePair) {
+
+return this.http.put('/api/category/' + category.id, category)
 .pipe(map((response: any) => response.json()));
-    
+
 }
-UpdateStore(store:Store) {
- 
-  return this.http.put('/api/store/'+ store.id, store)
+UpdateStore(store: Store) {
+
+  return this.http.put('/api/store/' + store.id, store)
   .pipe(map((response: any) => response.json()));
-      
+
   }
 ListCategory() {
   return this.http.get('/api/category')
