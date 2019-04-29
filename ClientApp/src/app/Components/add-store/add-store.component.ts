@@ -38,15 +38,14 @@ export class AddStoreComponent implements OnInit {
 
   submit(){
     if (this.store.id) {
-    
-      this.configurationService.UpdateStore(this.store)
-          .subscribe(x => { 
+   this.configurationService.UpdateStore(this.store)
+          .subscribe(x => {
           });
-  
+
   } else {
-     
+
       this.configurationService.createStore(this.store)
-  
+
           .subscribe(x => {
 
 
