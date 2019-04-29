@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlphaStore.Controllers
 {
+       [Route("/api/customer/")]
     public class CustomerController:Controller
     {
       private readonly IMapper mapper;

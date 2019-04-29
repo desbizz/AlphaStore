@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlphaStore.Controllers
 {
+
+       [Route("/api/staff/")]
     public class StaffController:Controller
     {private readonly IMapper mapper;
        private readonly ProfileContext context;

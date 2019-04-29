@@ -89,4 +89,45 @@ ListCategory() {
           .pipe(map((response: any) => response.json()));
         
           }
+          createCustomer(product) {
+
+            return this.http.post('/api/customer', product)
+            .pipe(map((response: any) => response.json()));
+        
+        }
+        UpdateCustomer(payment: SaveProduct) {
+        
+          return this.http.put('/api/customer/' + payment.id, payment)
+          .pipe(map((response: any) => response.json()));
+        
+        }
+        ListCustomer() {
+          return this.http.get('/api/customer')
+          .pipe(map((response: any) => response.json()));
+          }
+          GetCustomer(id) {
+            return this.http.get('/api/customer/' + id)
+            .pipe(map((response: any) => response.json()));
+            }
+
+            createStaff(product) {
+
+              return this.http.post('/api/staff', product)
+              .pipe(map((response: any) => response.json()));
+          
+          }
+          UpdateStaff(payment: SaveProduct) {
+          
+            return this.http.put('/api/staff/' + payment.id, payment)
+            .pipe(map((response: any) => response.json()));
+          
+          }
+          ListStaff() {
+            return this.http.get('/api/staff')
+            .pipe(map((response: any) => response.json()));
+            }
+            GetStaff(id) {
+              return this.http.get('/api/staff/' + id)
+              .pipe(map((response: any) => response.json()));
+              }
 }
